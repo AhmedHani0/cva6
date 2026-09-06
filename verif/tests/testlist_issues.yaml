@@ -115,3 +115,12 @@ testlist:
       -fvisibility=hidden
       -nostdlib
       -nostartfiles
+
+  - test: load-misaligned-warning
+    <<: *common_test_config
+    description: >
+      Check that misaligned word and halfword loads raise load-address-
+      misaligned exceptions without terminating simulation in load_unit
+      offset assertions.
+    iterations: 1
+    asm_tests: <path_var>/custom/issues/load-misaligned-warning.S
